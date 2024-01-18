@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .container {
+      position: relative;
+      margin-bottom: 50px; /* Optional: Adjust the margin as needed */
+    }
+        body {
+          background: #fabffa;
+animation: fadeBackground infinite 10s;
+animation-fill-mode: linear forwards;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+font-family: "Pacifico", cursive;
+          overflow: hidden;
+          align-items: center;
+          height: 100vh;
+          transition: background 1s ease; 
+    
+}
+
+@keyframes fadeBackground { 0% { background-color: rgb(250, 192, 252); }
+      20% { background-color: rgb(250, 141, 250); }
+      40% { background-color: rgb(173, 93, 163); }
+      60% { background-color: rgb(188, 131, 226); }
+      80% { background-color: rgb(160, 181, 219); }
+      }
+
+  
+button {    display:inline-block;
+            background: linear-gradient(to right, #d868d8, #ebace5, #ab6ce6, #c977cc);
+            color: white;
+            padding: 15px 30px;
+            font-size: 24px;
+            cursor: pointer;
+            border: 0.5px solid #ffffff;
+            border-radius: 40px;
+         margin-top:20px ;
+            position: absolute;
+      bottom: 50px;
+            transition: all 0.5s ease-in-out;
+            animation: neonGlow 2s linear infinite;
+          
+        }
+        button:hover {
+            background: linear-gradient(to left, #6d4372, #ce83d4);
+            transform: scale(1.5);
+          
+        }
+
+        button.clicked {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+        @keyframes neonGlow {
+      0% {
+        box-shadow: 0 0 50px #ff69b4;
+      }
+      50% {
+        box-shadow: 0 0 50px #ff69b4, 0 0 50px #ff69b4, 0 0 60px #ff69b4;
+      }
+      100% {
+        box-shadow: 0 0 50px #ff69b4;
+      }
+    }
+        #imageContainer {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .animated-text {
+            font-size: 55px;
+            color:whitesmoke;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease; /* Add transition properties for font animation */
+        }
+        .gif_container {
+            opacity:0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+}
+    </style>
+    
+    <button class="button" onclick="changeColor()">Click me!</button>
+    <div class="animated-text">You deserve a life full of happiness and positivity. Your hand is the only one i ever want to hold 🤍 I love you forever darling.....💍💖</div>
+    <script>
+        function changeColor() {
+            var button = document.querySelector('.button');
+            var animatedText = document.querySelector('.animated-text');
+            var gifContainer= document.querySelector('.gif_container');
+            document.body.style.background = "linear-gradient(45deg, #6d4372,  #ce83d4)";
+            button.style.opacity = '0'; // Set button opacity to 0 for disappearance
+            setTimeout(function() {
+                button.style.display = 'none'; // Hide the button after the transition
+            }, 2000); // Adjust the timeout to match the transition duration
+            animatedText.style.opacity = '1'; // Set text opacity to 1 for appearance
+            animatedText.style.transform = 'translateY(0)'; // Reset the text position
+            gifContainer.style.opacity = '1'; // Set text opacity to 1 for appearance
+            gifContatiner.style.transform = 'translateY(0)';
+        }
+    </script>
+     <div class="gif_container">
+      <img
+        src="undefined - Imgur (1).gif"
+        alt="Cute animated illustration"
+        height="290px" width="290px"
+      />
+    </div>
+</body>
+</html>

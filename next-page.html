@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * { 
+  margin : 0;
+  padding: 0;
+  box-sizing : border-box;
+  font-family : "Poppins", sans-serif;
+}
+
+body {
+  display : flex;
+  align-items : center;
+  justify-content : center;  
+  background-color: #43345d;
+  min-height : 800px;
+  
+  
+}
+
+.container {
+  position : relative;
+  width : 1100px;
+  display : flex;
+  align-items : center;
+  justify-content : center;
+  flex-wrap : warp;
+  padding : 10px;  
+  
+}
+
+.container .card {
+  position: relative;
+  max-width : 350px;
+  height : 350px;  
+  background-color : #7c7a7a;
+  margin : 30px 10px;
+  padding : 30px 15px;
+  
+  display : flex;
+  flex-direction : column;
+  box-shadow : 0 5px 20px rgba(0,0,0,0.5);
+  transition : 0.3s ease-in-out;
+  border-radius : 15px;
+  
+}
+.container .card:hover {
+  height : 500px;    
+}
+
+
+.container .card .image {
+  position : relative;
+  width : 300px;
+  height : 250px;
+  
+  top : -40%;
+  left: 8px;
+  box-shadow : 0 5px 20px rgba(0,0,0,0.2);
+  z-index : 1;
+}
+
+.container .card .image img {
+  max-width : 100%;
+  border-radius : 20px;
+}
+
+.container .card .content {
+  position : relative;
+  top : -145px;
+  padding : 15px 20px;
+  color : #080808;
+  text-align : center;
+  font-size: medium;
+  visibility : hidden;
+  opacity : 0;
+  transition : 0.3s ease-in-out;
+    
+}
+
+.container .card:hover .content {
+   margin-top : 80px;
+   visibility : visible;
+   opacity : 1;
+   transition-delay: 0.2s;
+  
+}
+.btn {
+  background: #38925e;
+  width: 170px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  /*To Make Div In Center*/
+  margin: auto;
+  position: absolute;
+  top: 100;
+  bottom:0;
+  left: 20;
+  right: 100px;
+}
+
+.btn:before {
+  content: "Next";
+  color: #FFF;
+  font-family: arial;
+  font-size: 30px;
+  line-height: 50px;
+  position: absolute;
+  margin: auto;
+  margin-left: 50%;
+  transition: all 1s ease-in-out;
+  transform: translate(-50%, 0%);
+}
+
+.btn:hover:before {
+  position: absolute;
+  transform: translateX(100px);
+  transition: all 1s ease-in-out;
+}
+
+
+    </style>
+      <div class = container>
+      <div class = card>
+        <div class = image>
+          <img src="/image.jpg" alt="Card Image">
+        </div>
+        <div class = content>
+          <p><i>The longer you wait for something. The more you appreciate it when u get it. Because anything worth having is always worth the wait</p></i>
+          <p>Even though we may be separated on your special day, I want you to feel the depth of my love and appreciation for you. You are the most extraordinary blessing in my life, and I am endlessly grateful for your presence each and every day.You're the one who makes me feel special even when i feel down and sad. I'm lucky to have u as my boyfriend . </p>
+        </div>
+      </div>    
+    </div>
+    <h1>Hover to read the card  </h1>
+    <a href="next-page2.html" class="btn"></a>
+</body>
+</html>
