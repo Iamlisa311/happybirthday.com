@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            overflow: hidden;
+            background-color: #43345d;   
+        
+        }
+       
+.next-page-button {
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  padding: 20px 80px 20px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  top: 200px;
+  left: 400px;
+  
+}
+
+.next-page-button:after {
+  content: "next page";
+  color:#000;
+  background-color: #ffe54c;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+  bottom: 5px;
+  right: 20px;
+}
+
+.next-page-button:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .next-page-button {
+    padding: 20px 80px 20px;
+  }
+}
+
+        
+        #birthday-message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-top: 50px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+             border-radius: 10px;
+             padding: 20px;
+             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              width: 400px;
+
+        }
+
+        #birthday-image {
+            width: 400px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        .balloon-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 10vh;
+        }
+        
+        
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background-color: #FF0000; /* Red color */
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            margin: 0 10px;
+            bottom: 0;
+            
+        }
+        .balloon::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 50vb; /* Adjust the length of the strings */
+            background-color: #000; /* Black color for the strings */
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50% ; /* Curved top */
+        }
+        .balloon:nth-child(1) {
+            background-color: #FF0000; /* Red color */
+            left: 10%;
+        }
+
+        .balloon:nth-child(2) {
+            background-color: #00FF00; /* Green color */
+            left: 30%;
+        }
+
+        .balloon:nth-child(3) {
+            background-color: #0000FF; /* Blue color */
+            left: 50%;
+        }
+
+        .balloon:nth-child(4) {
+            background-color: #FFD700; /* Gold color */
+            left: 70%;
+        }
+
+        .balloon:nth-child(5) {
+            background-color: #4df0f0; /* Violet color */
+            left: 90%;
+        }
+
+        .balloon:nth-child(6) {
+            background-color: #FF4500; /* Orange-Red color */
+            left: 15%;
+        }
+
+        .balloon:nth-child(7) {
+            background-color: #32CD32; /* Lime Green color */
+            left: 45%;
+        }
+
+        .balloon:nth-child(8) {
+            background-color: #dd3055; /* Purple color */
+            left: 75%;
+        }
+
+        .balloon:nth-child(9) {
+            background-color: #FFA500; /* Orange color */
+            left: 25%;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100vh);
+                
+            }
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        button {
+            background: linear-gradient(to right, #260947, #5f3a83, #dd5edd);
+            color: white;
+            padding: 15px 30px;
+            font-size: 24px;
+            cursor: pointer;
+            border: 1px solid;
+            border-radius: 40px;
+            margin-top: 20px;
+            transition: all 0.5s ease-in-out;
+        }
+        button:hover {
+            background: linear-gradient(to left, #ff7e5f, #feb47b);
+            transform: scale(1.1);
+        }
+
+        button.clicked {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+        .confetti {
+            position: absolute;
+            background-color: #25ff4a; /* Gold color */
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: confettiFall 3s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .chocolate {
+            position: absolute;
+            background-color: #8B4513; /* Chocolate color */
+            width: 20px;
+            height: 10px;
+            border-radius: 5 px;
+            animation: confettiFall 4s linear infinite;
+        }
+
+        .cookie {
+            position: absolute;
+            background-color: #cdec5b; /* Chocolate color */
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            animation: confettiFall 5s linear infinite;
+        }
+        .gif_container {
+            display: flex;
+            justify-content: left;
+            align-items: left;
+}
+
+       
+    </style>
+</head>
+<body>
+    <div class="balloon-container">
+        <div class="balloon">
+            <div class="string"></div>
+        </div>
+        <div class="balloon">
+            <div class="string"></div>
+        </div>
+        <div class="balloon">
+            <div class="string"></div>
+        </div>
+        <div class="balloon">
+            <div class="string"></div>
+        </div>
+        <div class="balloon">
+            <div class="string"></div>
+        </div>
+        <div class="balloon">
+            <div class="string"></div>
+        </div>
+        <div class="balloon">
+            <div class="string"></div>
+        </div>
+        <div class="balloon">
+            <div class="string"></div>
+        </div>
+        <div class="balloon">
+            <div class="string"></div>
+        </div>
+    </div>
+
+    <button id="floatButton" onclick="floatBalloons()">Click for surprise</button>
+
+    <script>
+        function floatBalloons() {
+            var textElement = document.getElementById('birthday-message');
+            var balloons = document.querySelectorAll('.balloon');
+            var confetti = document.querySelectorAll('.confetti');
+            var chocolates = document.querySelectorAll('.chocolate');
+            var cookies = document.querySelectorAll('.cookie');
+
+            textElement.style.opacity = 1; // Show the text
+            textElement.style.animation = 'fadeIn 1s ease-in-out';
+            
+            setTimeout(function() {
+                textElement.style.transition = 'opacity 200s ease-in-out';
+                textElement.style.opacity = 0; // Hide the text after a delay
+
+                balloons.forEach(function(balloon) {
+                    balloon.style.animation = 'floatUp 4s ease-in-out infinite, fadeOut 0.5s 3.5s forwards';
+                });
+            }, 2000); // Delay the balloon animation to wait for the text to reach the center
+            
+        }
+    </script>
+    <div id="birthday-message">
+        <p> 🎉Happy birthday 🎂  </p>
+        <p>to the man who stole my heart! ❤️ You’re the best boyfriend I could ask for, and I’m grateful for your love and support. Despite the distance that separates us, please know that you’re constantly on my mind, every minute of every day.. May your birthday be a truly extraordinary celebration, just like you are 🥂💌<br>Happy birthday Gauravvvvvvvv🎉</p>
+        
+    </div>
+
+    <!-- Confetti -->
+    <div class="confetti" style="top: 10vh; left: 10vw;"></div>
+    <div class="confetti" style="top: 20vh; left: 20vw;"></div>
+    <div class="confetti" style="top: 30vh; left: 30vw;"></div>
+    <div class="confetti" style="top: 40vh; left: 40vw;"></div>
+    <div class="confetti" style="top: 50vh; left: 50vw;"></div>
+    <div class="confetti" style="top: 60vh; left: 60vw;"></div>
+    <div class="confetti" style="top: 70vh; left: 70vw;"></div>
+    <div class="confetti" style="top: 80vh; left: 80vw;"></div>
+    <div class="confetti" style="top: 90vh; left: 90vw;"></div>
+
+   <!-- Falling Chocolates -->
+   <div class="chocolate" style="top: 10vh; left: 30vw;"></div>
+   <div class="chocolate" style="top: 20vh; left: 60vw;"></div>
+   <div class="chocolate" style="top: 30vh; left: 10vw;"></div>
+   <div class="chocolate" style="top: 40vh; left: 50vw;"></div>
+   <div class="chocolate" style="top: 50vh; left: 80vw;"></div>
+   
+   <!-- Falling Cookies -->
+   <div class="cookie" style="top: 15vh; left: 70vw;"></div>
+   <div class="cookie" style="top: 25vh; left: 40vw;"></div>
+   <div class="cookie" style="top: 35vh; left: 20vw;"></div>
+   <div class="cookie" style="top: 45vh; left: 75vw;"></div>
+   <div class="cookie" style="top: 55vh; left: 10vw;"></div>
+
+   <div class="gif_container">
+    <img
+      src="https://media.tenor.com/owJzjXOIngsAAAAi/milk-mocha.gif"
+      alt="Cute animated illustration"
+      align="left" height="200px" width="200px"
+    />
+  </div>
+
+
+<a href="next-page.html" class="next-page-button"></a>
+ 
+</body>
+</html>
